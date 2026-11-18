@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Production COBOL (PDS)",
+    "source_type": "PDS",
+    "enabled": true,
+    "resolution_order": 10,
+    "credential_ref": "vault://mainframe/svc-acctscan",
+    "schedule": "MANUAL",
+    "pds_source_config": {
+      "host": "mvs1.example.org",
+      "port": 443,
+      "protocol": "ZOSMF",
+      "codepage": "IBM-1141",
+      "cobol_dsn_patterns": "PROD.ACCT.COBOL, PROD.ACCT.CICS.COBOL",
+      "copybook_dsn_patterns": "PROD.ACCT.COPYLIB",
+      "listing_dsn_patterns": "PROD.ACCT.LISTING",
+      "member_filter": "*"
+    }
+  },
+  {
+    "name": "acct-batch (Git)",
+    "source_type": "GIT",
+    "enabled": true,
+    "resolution_order": 20,
+    "credential_ref": "SSH key: ~/.ssh/id_ed25519",
+    "schedule": "MANUAL",
+    "vcs_source_config": {
+      "repo_url": "https://git.example.org/acct/acct-batch.git",
+      "branch_or_path": "main",
+      "revision": null,
+      "cobol_globs": "src/**/*.cbl, src/**/*.cob",
+      "copybook_globs": "copy/**/*.cpy",
+      "listing_globs": "listings/**/*.lst",
+      "exclude_globs": "test/**"
+    }
+  },
+  {
+    "name": "Legacy trunk (SVN)",
+    "source_type": "SVN",
+    "enabled": false,
+    "resolution_order": 30,
+    "credential_ref": "vault://svn/legacy-reader",
+    "schedule": "MANUAL",
+    "vcs_source_config": {
+      "repo_url": "https://svn.example.org/repos/legacy",
+      "branch_or_path": "/trunk",
+      "revision": null,
+      "cobol_globs": "**/*.cbl",
+      "copybook_globs": "**/*.cpy",
+      "listing_globs": "**/*.lst",
+      "exclude_globs": "**/old/**"
+    }
+  }
+]

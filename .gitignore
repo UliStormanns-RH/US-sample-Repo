@@ -1,0 +1,10 @@
+.DS_STORE
+scratch.*
+# local secrets – never commit
+env
+.env
+.env.*
+
+# Supabase CLI metadata (never commit)
+supabase/.temp/
+!.env.example

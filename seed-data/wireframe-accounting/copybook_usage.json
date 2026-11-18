@@ -1,0 +1,94 @@
+[
+  {
+    "module": "MTHEND",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTBTCH",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTBTCH",
+    "copybook": "ERRCODES"
+  },
+  {
+    "module": "ACCTONL",
+    "copybook": "ACCTMAP"
+  },
+  {
+    "module": "ACCTONL",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTMENU",
+    "copybook": "MENUMAP"
+  },
+  {
+    "module": "ACCTINQ",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTINQ",
+    "copybook": "CUSTREC"
+  },
+  {
+    "module": "ACCTREAD",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTVAL",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTVAL",
+    "copybook": "TRANREC"
+  },
+  {
+    "module": "ACCTUPD",
+    "copybook": "ACCTREC"
+  },
+  {
+    "module": "ACCTUPD",
+    "copybook": "TRANREC"
+  },
+  {
+    "module": "INTCALC",
+    "copybook": "RATEREC"
+  },
+  {
+    "module": "RATETBL",
+    "copybook": "RATEREC"
+  },
+  {
+    "module": "RATELOAD",
+    "copybook": "RATEREC"
+  },
+  {
+    "module": "RPTGEN",
+    "copybook": "RPTLINE"
+  },
+  {
+    "module": "CUSTREAD",
+    "copybook": "CUSTREC"
+  },
+  {
+    "module": "DBACCESS",
+    "copybook": "SQLCA"
+  },
+  {
+    "module": "DBACCESS",
+    "copybook": "DBPARM"
+  },
+  {
+    "module": "ERRHNDLR",
+    "copybook": "ERRCODES"
+  },
+  {
+    "module": "AUDITLOG",
+    "copybook": "AUDREC"
+  },
+  {
+    "module": "ADDRFMT",
+    "copybook": "CUSTREC"
+  }
+]

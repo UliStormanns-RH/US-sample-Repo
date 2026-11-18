@@ -1,0 +1,26 @@
+[
+  {
+    "module": "TAXCALC2",
+    "hint": "Referenced by ACCTUPD. Possibly in PDS PROD.TAX.LOADLIB (not configured)."
+  },
+  {
+    "module": "PRTSPOOL",
+    "hint": "Referenced by RPTGEN. Likely an assembler module."
+  },
+  {
+    "module": "DSNTIAR",
+    "hint": "IBM DB2 supplied routine – usually excluded with a filter."
+  },
+  {
+    "module": "CEE3ABD",
+    "hint": "IBM Language Environment callable service."
+  },
+  {
+    "module": "CEEDAYS",
+    "hint": "IBM Language Environment callable service."
+  },
+  {
+    "module": "CEEDATE",
+    "hint": "IBM Language Environment callable service."
+  }
+]

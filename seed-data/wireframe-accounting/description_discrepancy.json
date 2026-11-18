@@ -1,0 +1,64 @@
+[
+  {
+    "module": "ACCTVAL",
+    "severity": "HIGH",
+    "title": "Age limit differs",
+    "comment_text": "REJECT DORMANT ACCOUNTS OLDER THAN 10 YEARS",
+    "code_behaviour": "The comment states a 10-year limit, the code rejects after 5 years.",
+    "code_excerpt": [
+      "           IF WS-AGE-YEARS > 5 AND ACCT-DORMANT = 'Y'",
+      "              MOVE 'N' TO VALID-FLAG",
+      "           END-IF"
+    ],
+    "related_call": null
+  },
+  {
+    "module": "ACCTUPD",
+    "severity": "HIGH",
+    "title": "Tax is applied although comment says it is not",
+    "comment_text": "NO TAX IS APPLIED DURING POSTING",
+    "code_behaviour": "The header comment says no tax is applied, but the code calls TAXCALC2 before the update.",
+    "code_excerpt": null,
+    "related_call": "TAXCALC2"
+  },
+  {
+    "module": "INTCALC",
+    "severity": "MEDIUM",
+    "title": "Rates are not hard-coded",
+    "comment_text": "INTEREST RATES ARE HARD-CODED IN WORKING-STORAGE",
+    "code_behaviour": "The comment claims hard-coded rates; the code reads them via RATETBL. The WORKING-STORAGE rate table is unused.",
+    "code_excerpt": null,
+    "related_call": "RATETBL"
+  },
+  {
+    "module": "RPTGEN",
+    "severity": "LOW",
+    "title": "Output target differs",
+    "comment_text": "REPORT IS WRITTEN TO SYSOUT",
+    "code_behaviour": "The comment says SYSOUT; the code passes pages to PRTSPOOL (missing module) instead.",
+    "code_excerpt": null,
+    "related_call": "PRTSPOOL"
+  },
+  {
+    "module": "ERRHNDLR",
+    "severity": "HIGH",
+    "title": "Handler can abend",
+    "comment_text": "THIS ROUTINE NEVER ABENDS - IT ONLY LOGS",
+    "code_behaviour": "The comment says the routine never abends; the code calls CEE3ABD for severity ≥ 12.",
+    "code_excerpt": [
+      "           IF ERR-SEVERITY >= 12"
+    ],
+    "related_call": "CEE3ABD"
+  },
+  {
+    "module": "DATEUTIL",
+    "severity": "MEDIUM",
+    "title": "Date format differs",
+    "comment_text": "RETURNS FORMATTED DATE AS DD.MM.YYYY",
+    "code_behaviour": "The comment documents DD.MM.YYYY, the picture string passed to CEEDATE is YYYY-MM-DD.",
+    "code_excerpt": [
+      "           MOVE 'YYYY-MM-DD' TO WS-PICSTR"
+    ],
+    "related_call": null
+  }
+]

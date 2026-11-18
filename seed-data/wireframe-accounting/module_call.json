@@ -1,0 +1,272 @@
+[
+  {
+    "caller": "MTHEND",
+    "callee": "INTCALC",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "MTHEND",
+    "callee": "RPTGEN",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "MTHEND",
+    "callee": "AUDITLOG",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "MTHEND",
+    "callee": "LOGWRITE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "ACCTREAD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "ACCTVAL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "ACCTUPD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "RPTGEN",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "LOGWRITE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTBTCH",
+    "callee": "ERRHNDLR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTONL",
+    "callee": "ACCTINQ",
+    "call_type": "CICS_LINK",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTONL",
+    "callee": "ACCTMENU",
+    "call_type": "CICS_XCTL",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTONL",
+    "callee": "LOGWRITE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTMENU",
+    "callee": "ACCTONL",
+    "call_type": "CICS_XCTL",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTINQ",
+    "callee": "ACCTREAD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTINQ",
+    "callee": "CUSTREAD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTINQ",
+    "callee": "FMTAMT",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTREAD",
+    "callee": "DBACCESS",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTREAD",
+    "callee": "ERRHNDLR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTVAL",
+    "callee": "DATEUTIL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTVAL",
+    "callee": "CHKDIGIT",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTVAL",
+    "callee": "CUSTREAD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTVAL",
+    "callee": "ERRHNDLR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTUPD",
+    "callee": "DBACCESS",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTUPD",
+    "callee": "INTCALC",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTUPD",
+    "callee": "TAXCALC2",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTUPD",
+    "callee": "AUDITLOG",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ACCTUPD",
+    "callee": "ERRHNDLR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "INTCALC",
+    "callee": "DATEUTIL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "INTCALC",
+    "callee": "RATETBL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "RATETBL",
+    "callee": "RATELOAD",
+    "call_type": "DYNAMIC",
+    "dynamic_variable": "WS-LOADER"
+  },
+  {
+    "caller": "RATELOAD",
+    "callee": "DBACCESS",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "RPTGEN",
+    "callee": "FMTAMT",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "RPTGEN",
+    "callee": "DATEUTIL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "RPTGEN",
+    "callee": "PRTSPOOL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "CUSTREAD",
+    "callee": "DBACCESS",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "CUSTREAD",
+    "callee": "ADDRFMT",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "DBACCESS",
+    "callee": "DSNTIAR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "DBACCESS",
+    "callee": "ERRHNDLR",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ERRHNDLR",
+    "callee": "LOGWRITE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "ERRHNDLR",
+    "callee": "CEE3ABD",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "AUDITLOG",
+    "callee": "LOGWRITE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "AUDITLOG",
+    "callee": "DATEUTIL",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "DATEUTIL",
+    "callee": "CEEDAYS",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  },
+  {
+    "caller": "DATEUTIL",
+    "callee": "CEEDATE",
+    "call_type": "STATIC",
+    "dynamic_variable": null
+  }
+]

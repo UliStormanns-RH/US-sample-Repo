@@ -1,0 +1,149 @@
+[
+  {
+    "module": "MTHEND",
+    "summary_text": "Month-end batch driver. It calls INTCALC once per account to compute accrued interest, writes an audit entry through AUDITLOG, and finally triggers RPTGEN to print the month-end statement. It does not post bookings itself.",
+    "io_text": "Input: ACCOUNT master file (via copybook ACCTREC)\nOutput: return code to JCL step (0 / 8)",
+    "header_comment": "Month-end driver. Runs interest posting and produces the month-end statement report.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTBTCH",
+    "summary_text": "Daily batch driver for account postings. For each record of the transaction file it reads the account (ACCTREAD), validates the transaction (ACCTVAL) and, if valid, posts it (ACCTUPD). Rejected records are counted and passed to ERRHNDLR. At the end a daily summary is produced by RPTGEN. Progress messages go to LOGWRITE.",
+    "io_text": "Input: TRANSIN (sequential, 200-byte records)\nOutput: updated ACCOUNT table, daily report, RC 0/4/8",
+    "header_comment": "Daily account batch. Reads transaction file, validates and posts transactions, writes report.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTONL",
+    "summary_text": "CICS online program behind transaction ACC1. It receives the account inquiry map, links to ACCTINQ to fetch the data and sends the result screen. PF3 transfers control back to the main menu ACCTMENU via XCTL.",
+    "io_text": "Input: BMS map ACCTMAP\nOutput: BMS map ACCTMAP, COMMAREA to ACCTINQ",
+    "header_comment": "CICS transaction ACC1 – account inquiry screen.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTMENU",
+    "summary_text": "CICS main menu. Depending on the selected option it transfers control (XCTL) to ACCTONL. Together with ACCTONL this forms a cycle (ACCTONL → ACCTMENU → ACCTONL), which is normal for CICS menu navigation.",
+    "io_text": "Input: BMS map MENUMAP",
+    "header_comment": "Main menu for account transactions.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTINQ",
+    "summary_text": "Sub-program that collects everything needed for one account inquiry: account data (ACCTREAD), customer data (CUSTREAD) and the formatted balance (FMTAMT). Results are returned in the COMMAREA.",
+    "io_text": "Input/Output: COMMAREA (account number in, display data out)",
+    "header_comment": "Returns account and customer data for inquiry.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTREAD",
+    "summary_text": "Reads a single account row by account number through the DB access layer DBACCESS. If the row is not found it sets RC 4; on any other SQL error it calls ERRHNDLR.",
+    "io_text": "Input: account number\nOutput: ACCTREC, RC 0/4/8",
+    "header_comment": "Reads one account by account number.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTVAL",
+    "summary_text": "Validates one transaction. It checks the account number check digit (CHKDIGIT), verifies that the customer exists and is active (CUSTREAD), computes the account age with DATEUTIL and rejects accounts that are older than 5 years and flagged dormant. Validation errors are reported via ERRHNDLR.",
+    "io_text": "Input: TRANREC, ACCTREC\nOutput: VALID-FLAG (Y/N), reason code",
+    "header_comment": "Validates a transaction against its account.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ACCTUPD",
+    "summary_text": "Posts a validated transaction. It recalculates accrued interest (INTCALC), applies withholding tax through TAXCALC2, updates the account balance through DBACCESS and writes an audit record (AUDITLOG). ⚠ TAXCALC2 was not found in any configured source, so the tax logic could not be analysed.",
+    "io_text": "Input: TRANREC, ACCTREC\nOutput: updated balance, audit record",
+    "header_comment": "Posts a validated transaction to the account.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "INTCALC",
+    "summary_text": "Calculates accrued interest as balance × rate × days / 365. The number of days comes from DATEUTIL; the rate is looked up in the rate table via RATETBL.",
+    "io_text": "Input: balance, from-date, to-date, product code\nOutput: interest amount (COMP-3)",
+    "header_comment": "Calculates accrued interest for an account.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "RATETBL",
+    "summary_text": "Looks up the interest rate for a product code in an in-memory table. On the first call it loads the table by calling RATELOAD dynamically (program name held in variable WS-LOADER).",
+    "io_text": "Input: product code\nOutput: rate (PIC 9V9(6))",
+    "header_comment": "Rate table lookup with lazy load.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "RATELOAD",
+    "summary_text": "Loads all rows of the RATES table into the caller's table area using DBACCESS.",
+    "io_text": "Output: rate table (max 500 entries)",
+    "header_comment": "Loads all rates from table RATES.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "RPTGEN",
+    "summary_text": "Builds report lines (header, detail, totals), formats amounts with FMTAMT and dates with DATEUTIL, and hands each page to the print spooler PRTSPOOL.",
+    "io_text": "Input: report request\nOutput: print pages",
+    "header_comment": "Generates statement report.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "CUSTREAD",
+    "summary_text": "Reads one customer row via DBACCESS and formats the postal address with ADDRFMT.",
+    "io_text": "Input: customer id\nOutput: CUSTREC",
+    "header_comment": "Reads customer by customer id.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "DBACCESS",
+    "summary_text": "Generic DB2 access layer. Executes SELECT / UPDATE / INSERT statements selected by a function code. On SQL errors it formats the SQLCA with DSNTIAR (IBM DB2 routine, not in the repository) and calls ERRHNDLR.",
+    "io_text": "Input: DBPARM (function, table, key)\nOutput: row buffer, SQLCODE",
+    "header_comment": "Generic DB2 access layer (SELECT/UPDATE).",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ERRHNDLR",
+    "summary_text": "Central error handler. Writes the error to the log (LOGWRITE). For severity 12 or higher it abends the run unit with CEE3ABD (Language Environment service).",
+    "io_text": "Input: error code, severity, text",
+    "header_comment": "Central error handler.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "AUDITLOG",
+    "summary_text": "Writes an audit record with a timestamp from DATEUTIL and mirrors it to the log via LOGWRITE.",
+    "io_text": "Input: AUDREC",
+    "header_comment": "Writes an audit trail record.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "DATEUTIL",
+    "summary_text": "Date utility. Converts dates to Lilian day numbers with CEEDAYS, calculates differences in days and formats dates with CEEDATE as YYYY-MM-DD.",
+    "io_text": "Input: function code, date(s)\nOutput: days or formatted date",
+    "header_comment": "Date utility: difference in days, formatting.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "FMTAMT",
+    "summary_text": "Formats a packed-decimal amount as display text with thousands separators and sign. Calls no other modules.",
+    "io_text": "Input: amount COMP-3\nOutput: PIC X(18)",
+    "header_comment": "Formats amount for display.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "CHKDIGIT",
+    "summary_text": "Computes a modulo-11 check digit for an account number and compares it with the last digit.",
+    "io_text": "Input: account number\nOutput: Y/N",
+    "header_comment": "Modulo-11 check digit.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "ADDRFMT",
+    "summary_text": "Builds up to four postal address lines from the customer record.",
+    "io_text": "Input: CUSTREC\nOutput: 4 × PIC X(40)",
+    "header_comment": "Formats postal address lines.",
+    "status": "CURRENT"
+  },
+  {
+    "module": "LOGWRITE",
+    "summary_text": "Writes one message line with timestamp to the job log (DD LOGOUT). Very widely used – a good candidate for a Hide filter.",
+    "io_text": "Input: message text",
+    "header_comment": "Writes one line to the job log.",
+    "status": "CURRENT"
+  }
+]

@@ -1,0 +1,268 @@
+[
+  {
+    "name": "MTHEND",
+    "module_kind": "PROGRAM",
+    "program_type": "BATCH",
+    "resolution_status": "RESOLVED",
+    "loc": 412
+  },
+  {
+    "name": "ACCTBTCH",
+    "module_kind": "PROGRAM",
+    "program_type": "BATCH",
+    "resolution_status": "RESOLVED",
+    "loc": 688
+  },
+  {
+    "name": "ACCTONL",
+    "module_kind": "PROGRAM",
+    "program_type": "CICS",
+    "resolution_status": "RESOLVED",
+    "loc": 355
+  },
+  {
+    "name": "ACCTMENU",
+    "module_kind": "PROGRAM",
+    "program_type": "CICS",
+    "resolution_status": "RESOLVED",
+    "loc": 198
+  },
+  {
+    "name": "ACCTINQ",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 240
+  },
+  {
+    "name": "ACCTREAD",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 150
+  },
+  {
+    "name": "ACCTVAL",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 310
+  },
+  {
+    "name": "ACCTUPD",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 520
+  },
+  {
+    "name": "INTCALC",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 275
+  },
+  {
+    "name": "RATETBL",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 120
+  },
+  {
+    "name": "RATELOAD",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 96
+  },
+  {
+    "name": "RPTGEN",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 430
+  },
+  {
+    "name": "CUSTREAD",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 180
+  },
+  {
+    "name": "DBACCESS",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 640
+  },
+  {
+    "name": "ERRHNDLR",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 210
+  },
+  {
+    "name": "AUDITLOG",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 140
+  },
+  {
+    "name": "DATEUTIL",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 260
+  },
+  {
+    "name": "FMTAMT",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 70
+  },
+  {
+    "name": "CHKDIGIT",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 64
+  },
+  {
+    "name": "ADDRFMT",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 88
+  },
+  {
+    "name": "LOGWRITE",
+    "module_kind": "PROGRAM",
+    "program_type": "SUB",
+    "resolution_status": "RESOLVED",
+    "loc": 58
+  },
+  {
+    "name": "ACCTMAP",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "ACCTREC",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "AUDREC",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "CUSTREC",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "DBPARM",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "ERRCODES",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "MENUMAP",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "RATEREC",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "RPTLINE",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "SQLCA",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "TRANREC",
+    "module_kind": "COPYBOOK",
+    "program_type": null,
+    "resolution_status": "RESOLVED",
+    "loc": null
+  },
+  {
+    "name": "TAXCALC2",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  },
+  {
+    "name": "PRTSPOOL",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  },
+  {
+    "name": "DSNTIAR",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  },
+  {
+    "name": "CEE3ABD",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  },
+  {
+    "name": "CEEDAYS",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  },
+  {
+    "name": "CEEDATE",
+    "module_kind": "PROGRAM",
+    "program_type": "UNKNOWN",
+    "resolution_status": "MISSING",
+    "loc": null
+  }
+]

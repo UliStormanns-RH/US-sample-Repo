@@ -1,0 +1,5 @@
+[
+  { "filter_set": "Wireframe default", "pattern": "LOGWRITE", "pattern_syntax": "WILDCARD", "mode": "HIDE", "enabled": true, "sort_order": 1 },
+  { "filter_set": "Wireframe default", "pattern": "CEE*", "pattern_syntax": "WILDCARD", "mode": "EXCLUDE", "enabled": true, "sort_order": 2 },
+  { "filter_set": "Wireframe default", "pattern": "DSN*", "pattern_syntax": "WILDCARD", "mode": "EXCLUDE", "enabled": false, "sort_order": 3 }
+]
